@@ -1,0 +1,89 @@
+<section class="Material-contact-section section-padding section-dark">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-md-12 mt-3">
+                <h1 class="display-3 ">We Would Love to Hear From You</h1>
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-6 mt-3 contact-widget-section2 wow animated fadeInLeft" >
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content.</p>
+
+              <div class="find-widget mt-3">
+               Address: <a href="#">MarketYard,Pune</a>
+              </div>
+              <div class="find-widget mt-3">
+                Phone:  <a href="#">+91 888888888888</a>
+              </div>
+
+              <div class="find-widget mt-3">
+                Email:  <a href="#">fakeemail@gmail.com</a>
+              </div>
+              
+            </div>
+            
+            <div class="col-md-6 " >
+                <form class="form-group" [formGroup] = "contactusForm" (ngSubmit)="onSend()">
+                    <div class="form-group label-floating">
+                      <label class="control-label" for="name">Name</label>
+                      <input formControlName = "name"  class="form-control" id="name" type="text" name="name">
+                      
+                      <span class="help-block" *ngIf = "!contactusForm.get('name').valid && contactusForm.get('name').touched "> <small>Please enter your first name! </small></span>
+                    
+                    </div>
+                    
+                    <div class="form-group label-floating">
+                      <label class="control-label" for="email">Email</label>
+                      <input formControlName = "email" class="form-control" id="email" type="email" name="email" >
+                      
+                      <span class="help-block" *ngIf = "!contactusForm.get('email').valid && contactusForm.get('email').touched "> <small>Please enter a valid Email! </small></span>
+
+                    </div>
+                    
+                    
+                    <div class="form-group label-floating">
+                      <label class="control-label">Subject</label>
+                      <input formControlName = "msgSubject" class="form-control" id="msg_subject" type="text" name="subject">
+                      
+                      <span class="help-block" *ngIf = "!contactusForm.get('msgSubject').valid && contactusForm.get('msgSubject').touched "> <small>Please enter your message subject! </small></span>
+
+                    </div>
+                    
+                    <div class="form-group label-floating">
+                        <label for="message" class="control-label">Message</label>
+                        <textarea formControlName="msg" class="form-control" rows="3" id="message" name="message" ></textarea>
+                        
+                        <span class="help-block" *ngIf = "!contactusForm.get('msg').valid && contactusForm.get('msg').touched "> <small>Please enter a message of atleast 10 words! </small></span>
+
+                    </div>
+                    
+                    <div class="form-submit mt-5">
+                        <button [disabled] = "!this.contactusForm.valid" data-toggle="modal" data-target="#exampleModal" class="btn btn-lg btn-outline-success" type="submit" id="form-submit"><i class="material-icons mdi mdi-message-outline"></i> Send Message</button>
+                        <div id="msgSubmit" class="h3 text-center hidden">
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Thank you for your connecting with us!</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>We have recieved your details and we will contact you soon!</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </section>

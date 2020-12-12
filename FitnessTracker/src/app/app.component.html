@@ -1,0 +1,32 @@
+<div class="container-fluid bg-dark">
+    <app-header></app-header>
+</div>
+
+<div class="container-fluid mt-1" *ngIf = "!isLoggedIn">
+    <div class="row justify-content-center ">
+        <app-auth></app-auth>
+    </div>  
+</div>
+
+<div class="container-fluid  bg-dark" *ngIf = "isLoggedIn">
+    <div class="row">
+        <div class="col-2 col-md-2 col-sm-12 bg-dark  justify-content-center">
+            <!-- <aside class="col-2 col-md-2  bg-dark justify-content-center"> -->
+                <nav class="navbar navbar-expand navbar-dark bg-dark flex-md-column flex-row align-items-start">
+                    <div class="collapse  justify-content-center navbar-collapse">
+                        <app-side-bar></app-side-bar>
+                    </div>
+                </nav>
+            <!-- </aside> -->
+        </div>
+        <div class="col border  mt-3" style="background-color: white;">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-dark">
+    <div class="row  justify-content-center ">
+        <app-footer></app-footer>
+    </div>
+    
+</div>

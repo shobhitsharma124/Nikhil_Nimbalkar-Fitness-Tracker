@@ -1,0 +1,125 @@
+<div class="row justify-content-center">
+    <h4 class="display-3">{{Mode}}</h4>
+</div>
+<hr class="bg-info">
+<form class="form-group mt-3 border p-3" (ngSubmit) = "onSignUp()" [formGroup] = "registerForm" *ngIf="!isLoginMode" >
+    <div class="row mt-3">
+        <div class="col text-center">
+            <label>Name</label>
+        </div>
+        <div class="col">
+            <input  id="foc1" formControlName = "name" type = "text" class="form-control"  >
+        </div>
+    </div>
+    <span class="help-block" *ngIf = "!registerForm.get('name').valid && registerForm.get('name').touched "> <small>Please enter your first name! </small></span>
+    <div class="row mt-3">
+        <div class="col text-center">
+            <label>Surname</label>
+        </div>
+        <div class="col">
+            <input formControlName = "surname" type = "text" class="form-control" >
+        </div>
+    </div>
+    <span class="help-block" *ngIf = "!registerForm.get('surname').valid && registerForm.get('surname').touched "> <small>Please enter your  surname! </small></span>
+    <div class="row mt-3">
+        <div class="col text-center">
+            <label>Address</label>
+        </div>
+        <div class="col">
+            <input formControlName = "address" type = "text" class="form-control" >
+        </div>
+    </div>
+    <span class="help-block" *ngIf = "!registerForm.get('address').valid && registerForm.get('address').touched "> <small>Please enter your Address! </small></span>
+    
+    <div class="row mt-3">
+        <div class="col text-center">
+            <label>Contact No.</label>
+        </div>
+        <div class="col">
+            <input formControlName = "contact" type = "tel" class="form-control" >
+        </div>
+    </div>
+    <span class="help-block" *ngIf = "!registerForm.get('contact').valid && registerForm.get('contact').touched "> <small>Please enter a valid phone no! </small></span>
+    
+    <div class="row mt-3">
+        <div class="col text-center">
+            <label>Email ID</label>
+        </div>
+        <div class="col">
+            <input formControlName = "email" type = "email" class="form-control" >
+        </div>
+    </div>
+    <span class="help-block" *ngIf = "!registerForm.get('email').valid && registerForm.get('email').touched "> <small>Please enter a valid email! </small></span>
+    
+    <div class="row mt-3">
+        <div class="col text-center">
+            <label>Username</label>
+        </div>
+        <div class="col">
+            <input formControlName = "username" type = "text" class="form-control" >
+        </div>
+    </div>
+    <span class="help-block" *ngIf = "!registerForm.get('username').valid && registerForm.get('username').touched "> <small>Please enter a username! </small></span>
+    
+    <div class="row mt-3">
+        <div class="col text-center">
+            <label>Password</label>
+        </div>
+        <div class="col">
+            <input formControlName="password" type = "password" class="form-control" >
+        </div>
+    </div>
+    <span class="help-block" *ngIf = "!registerForm.get('password').valid && registerForm.get('password').touched "> <small>Password must contain atleast 8 charachters, one uppercase ,one lowercase , one number and one special charachter! </small></span>
+    
+    <div class="row justify-content-center mt-3">
+        <button type="submit" class="btn btn-outline-primary btn-lg" [disabled] = "!this.registerForm.valid">SignUp</button>
+    </div>
+    <hr class="bg-info">
+    <div class="row justify-content-center mt-3">
+        <button type="button" class="btn btn-outline-success btn-lg" (click)="onSwitchMode()">Login</button>
+    </div>
+</form>
+
+
+<form class="form-group mt-3 border p-3" [formGroup]= "loginForm" (ngSubmit) = "onLogin()" *ngIf="isLoginMode">
+    <div class="row">
+        <div class="col text-center">
+            <label>Username</label>
+        </div>
+        <div class="col">
+            <input formControlName="username" type = "text" class="form-control" >
+        </div>
+    </div>
+    <span class="help-block" *ngIf = "!loginForm.get('username').valid && loginForm.get('username').touched "> <small>Please enter a username! </small></span>
+    
+    <div class="row mt-3">
+        <div class="col text-center">
+            <label>Password</label>
+        </div>
+        <div class="col">
+            <input formControlName="password" type = "password" class="form-control" >
+        </div>
+    </div>
+    <span class="help-block" *ngIf = "!loginForm.get('password').valid && loginForm.get('password').touched "> <small>Password must contain atleast 8 charachters, one uppercase ,one lowercase , one number and one special charachter! </small></span>
+
+
+    <div class="row justify-content-center mt-3">
+        <button type="submit" class="btn btn-outline-primary btn-lg" [disabled] = "!this.loginForm.valid">Login</button>
+    </div>
+
+    <hr class="bg-info">
+    <div class="row justify-content-center mt-3">
+        <button type="button" class="btn btn-outline-success btn-lg" (click)="onSwitchMode()">SignUp</button>
+    </div>
+
+
+    <div class="row justify-content-center">
+        <span class="text-center mt-3">Or</span>
+    </div>
+    
+    
+    <div class="row justify-content-center mt-3">
+        <button type="button" class="btn btn-outline-dark btn-lg" (click) = "onLoginAsGuest()">Login as Guest</button>
+    </div>
+</form>
+
